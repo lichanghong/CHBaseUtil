@@ -16,8 +16,6 @@ FOUNDATION_EXPORT const unsigned char CHDefinesLibVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <CHDefinesLib/PublicHeader.h>
 
-#import "UIColor+Hex.h"
-
 #define CONVERT_TIME(DATE) [MSDateUtils timeStrTotimeStamp:[[NSNumber alloc] initWithInt:[DATE timeIntervalSince1970]]]
 
 #define RGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
