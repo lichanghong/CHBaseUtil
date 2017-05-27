@@ -17,3 +17,5 @@ FOUNDATION_EXPORT const unsigned char CHBaseUtilVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <CHBaseUtil/PublicHeader.h>
 
 
+#import "CHDefinesLib.h"
+#import "UIColor+Hex.h"
