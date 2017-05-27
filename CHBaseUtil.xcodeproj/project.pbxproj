@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		95BDB4D21ED933B9002AF0AB /* CHBaseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D01ED933B9002AF0AB /* CHBaseUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95BDB4D91ED9522A002AF0AB /* CHDefinesLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D81ED9522A002AF0AB /* CHDefinesLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95BDB4E21ED957E9002AF0AB /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4E01ED957E9002AF0AB /* UIColor+Hex.h */; };
+		95BDB4E21ED957E9002AF0AB /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4E01ED957E9002AF0AB /* UIColor+Hex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95BDB4E31ED957E9002AF0AB /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDB4E11ED957E9002AF0AB /* UIColor+Hex.m */; };
+		95BDB4E91ED95D2C002AF0AB /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4E71ED95D2C002AF0AB /* UIView+Toast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95BDB4EA1ED95D2C002AF0AB /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDB4E81ED95D2C002AF0AB /* UIView+Toast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		95BDB4D81ED9522A002AF0AB /* CHDefinesLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDefinesLib.h; sourceTree = "<group>"; };
 		95BDB4E01ED957E9002AF0AB /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		95BDB4E11ED957E9002AF0AB /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		95BDB4E71ED95D2C002AF0AB /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		95BDB4E81ED95D2C002AF0AB /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 		95BDB4CF1ED933B9002AF0AB /* CHBaseUtil */ = {
 			isa = PBXGroup;
 			children = (
+				95BDB4EB1ED95D3A002AF0AB /* Toast */,
 				95BDB4DE1ED9523E002AF0AB /* Color */,
 				95BDB4D81ED9522A002AF0AB /* CHDefinesLib.h */,
 				95BDB4D01ED933B9002AF0AB /* CHBaseUtil.h */,
@@ -69,6 +74,15 @@
 			name = Color;
 			sourceTree = "<group>";
 		};
+		95BDB4EB1ED95D3A002AF0AB /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				95BDB4E71ED95D2C002AF0AB /* UIView+Toast.h */,
+				95BDB4E81ED95D2C002AF0AB /* UIView+Toast.m */,
+			);
+			name = Toast;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -79,6 +93,7 @@
 				95BDB4D91ED9522A002AF0AB /* CHDefinesLib.h in Headers */,
 				95BDB4E21ED957E9002AF0AB /* UIColor+Hex.h in Headers */,
 				95BDB4D21ED933B9002AF0AB /* CHBaseUtil.h in Headers */,
+				95BDB4E91ED95D2C002AF0AB /* UIView+Toast.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95BDB4EA1ED95D2C002AF0AB /* UIView+Toast.m in Sources */,
 				95BDB4E31ED957E9002AF0AB /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

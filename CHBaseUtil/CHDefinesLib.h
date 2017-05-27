@@ -19,7 +19,7 @@ FOUNDATION_EXPORT const unsigned char CHDefinesLibVersionString[];
 #define CONVERT_TIME(DATE) [MSDateUtils timeStrTotimeStamp:[[NSNumber alloc] initWithInt:[DATE timeIntervalSince1970]]]
 
 #define RGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
-#define RandomColor(r,g,b)  [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
 
 //获取一个字符串转换为URL
 #define URL(str) [NSURL URLWithString:[str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]
