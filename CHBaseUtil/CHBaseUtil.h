@@ -18,4 +18,4 @@ FOUNDATION_EXPORT const unsigned char CHBaseUtilVersionString[];
 
 
 #import "CHDefinesLib.h"
-#import "Color_Hex/UIColor+Hex.h"
+#import "UIColor+Hex.h"

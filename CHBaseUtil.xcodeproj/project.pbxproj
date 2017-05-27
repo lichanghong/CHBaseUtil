@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		95BDB4D21ED933B9002AF0AB /* CHBaseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D01ED933B9002AF0AB /* CHBaseUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95BDB4D91ED9522A002AF0AB /* CHDefinesLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D81ED9522A002AF0AB /* CHDefinesLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95BDB4DC1ED95237002AF0AB /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4DA1ED95237002AF0AB /* UIColor+Hex.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95BDB4DD1ED95237002AF0AB /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDB4DB1ED95237002AF0AB /* UIColor+Hex.m */; };
+		95BDB4E21ED957E9002AF0AB /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4E01ED957E9002AF0AB /* UIColor+Hex.h */; };
+		95BDB4E31ED957E9002AF0AB /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDB4E11ED957E9002AF0AB /* UIColor+Hex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,8 +18,8 @@
 		95BDB4D01ED933B9002AF0AB /* CHBaseUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBaseUtil.h; sourceTree = "<group>"; };
 		95BDB4D11ED933B9002AF0AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BDB4D81ED9522A002AF0AB /* CHDefinesLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDefinesLib.h; sourceTree = "<group>"; };
-		95BDB4DA1ED95237002AF0AB /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "Color_Hex/UIColor+Hex.h"; sourceTree = "<group>"; };
-		95BDB4DB1ED95237002AF0AB /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "Color_Hex/UIColor+Hex.m"; sourceTree = "<group>"; };
+		95BDB4E01ED957E9002AF0AB /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		95BDB4E11ED957E9002AF0AB /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 		95BDB4DE1ED9523E002AF0AB /* Color */ = {
 			isa = PBXGroup;
 			children = (
-				95BDB4DA1ED95237002AF0AB /* UIColor+Hex.h */,
-				95BDB4DB1ED95237002AF0AB /* UIColor+Hex.m */,
+				95BDB4E01ED957E9002AF0AB /* UIColor+Hex.h */,
+				95BDB4E11ED957E9002AF0AB /* UIColor+Hex.m */,
 			);
 			name = Color;
 			sourceTree = "<group>";
@@ -77,7 +77,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95BDB4D91ED9522A002AF0AB /* CHDefinesLib.h in Headers */,
-				95BDB4DC1ED95237002AF0AB /* UIColor+Hex.h in Headers */,
+				95BDB4E21ED957E9002AF0AB /* UIColor+Hex.h in Headers */,
 				95BDB4D21ED933B9002AF0AB /* CHBaseUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95BDB4DD1ED95237002AF0AB /* UIColor+Hex.m in Sources */,
+				95BDB4E31ED957E9002AF0AB /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
