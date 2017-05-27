@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		95BDB4D21ED933B9002AF0AB /* CHBaseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D01ED933B9002AF0AB /* CHBaseUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95BDB4D91ED9522A002AF0AB /* CHDefinesLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D81ED9522A002AF0AB /* CHDefinesLib.h */; };
-		95BDB4DC1ED95237002AF0AB /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4DA1ED95237002AF0AB /* UIColor+Hex.h */; };
+		95BDB4D91ED9522A002AF0AB /* CHDefinesLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D81ED9522A002AF0AB /* CHDefinesLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95BDB4DC1ED95237002AF0AB /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4DA1ED95237002AF0AB /* UIColor+Hex.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95BDB4DD1ED95237002AF0AB /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDB4DB1ED95237002AF0AB /* UIColor+Hex.m */; };
 /* End PBXBuildFile section */
 
