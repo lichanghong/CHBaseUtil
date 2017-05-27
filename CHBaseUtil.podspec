@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "CHBaseUtil"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "CHBaseUtil 封装了一些常用的宏定义和好用的工具类"
 
   # This description is used to generate tags and improve search results.
