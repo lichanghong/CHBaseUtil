@@ -6,11 +6,27 @@
 //  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import "UIColor+Hex.h"
+#import "UIColor+Util.h"
 
+@implementation UIColor (Util)
 
+UIColor *RedColor(){
+    return [UIColor redColor];
+}
 
-@implementation UIColor (Hex)
+UIColor *ClearColor(){
+    return  [UIColor clearColor];
+}
+
+UIColor *RandomColor()
+{
+return [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
+}
+
+UIColor *RGB(CGFloat r,CGFloat g,CGFloat b){
+    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1];
+}
+
 
 + (UIColor *)colorForHex:(NSString *)hexColor
 {

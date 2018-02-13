@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (Hex)
+@interface UIColor (Util)
 
 /*
  * Convert a string of format #4172AC into a UIColor instance. Nil is return if the specified string
@@ -16,5 +16,10 @@
  */
 + (UIColor *)colorForHex:(NSString *)hexColor;
 + (UIColor *)colorForHex:(NSString *)hexColor alpha:(CGFloat)alpha;
+FOUNDATION_EXTERN UIColor *RedColor();
+FOUNDATION_EXTERN UIColor *ClearColor();
+FOUNDATION_EXTERN UIColor *RandomColor();
+FOUNDATION_EXTERN UIColor *RGB(CGFloat r,CGFloat g,CGFloat b);
+
 
 @end

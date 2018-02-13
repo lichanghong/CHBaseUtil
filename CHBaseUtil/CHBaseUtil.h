@@ -18,5 +18,12 @@ FOUNDATION_EXPORT const unsigned char CHBaseUtilVersionString[];
 
 
 #import "CHDefinesLib.h"
-#import "UIColor+Hex.h"
+#import "UIColor+Util.h"
 #import "UIView+Toast.h"
+#import "NSString+Util.h"
+#import "UIImage+Util.h"
+#import "UILabel+Util.h"
+#import "NSString+Util.h"
+#import "UIView+CHGesture.h"
+#import "UIView+CHFrame.h"
+
