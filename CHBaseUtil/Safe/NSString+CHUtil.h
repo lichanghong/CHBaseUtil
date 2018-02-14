@@ -10,6 +10,7 @@
 
 - (id)jsonValue;
 
+/// json 转换的dic
 - (NSDictionary *)dictionary;
 
 /// 去除首尾空格或换行符

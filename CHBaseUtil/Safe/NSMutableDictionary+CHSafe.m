@@ -3,7 +3,7 @@
 //  Created by lichanghong on 13/02/2018.
 //  Copyright © 2018 lichanghong. All rights reserved.
 
-#import "NSMutableDictionary+CDFSafe.h"
+#import "NSMutableDictionary+CHSafe.h"
 
 @implementation NSMutableDictionary (CDFSafe)
 

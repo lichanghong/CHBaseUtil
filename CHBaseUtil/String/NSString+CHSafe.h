@@ -22,7 +22,7 @@ FOUNDATION_EXPORT NSString *unEmptyStringByDefault(NSString *originalStr);
 
  
  
-@interface NSString (CHSelf)
+@interface NSString (CHSafe)
 
 - (unichar)safeCharacterAtIndex:(NSUInteger)index;
 

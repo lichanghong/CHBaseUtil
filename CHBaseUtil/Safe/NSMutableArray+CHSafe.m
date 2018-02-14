@@ -3,25 +3,25 @@
 //  Created by lichanghong on 13/02/2018.
 //  Copyright © 2018 lichanghong. All rights reserved.
 
-#import "NSMutableArray+CDFSafe.h"
+#import "NSMutableArray+CHSafe.h"
 
-@implementation NSMutableArray (CDFSafe)
+@implementation NSMutableArray (CHSafe)
 
-- (void)cdf_safeAddObject:(id)obj
+- (void)safeAddObject:(id)obj
 {
     if (obj) {
         [self addObject:obj];
     }
 }
 
-- (void)cdf_safeAddObjectsFromArray:(NSArray *)otherArray
+- (void)safeAddObjectsFromArray:(NSArray *)otherArray
 {
     if (otherArray) {
         [self addObjectsFromArray:otherArray];
     }
 }
 
-- (void)cdf_safeInsertObject:(id)obj atIndex:(NSUInteger)index
+- (void)safeInsertObject:(id)obj atIndex:(NSUInteger)index
 {
     if (obj) {
         if (index < self.count) {
@@ -32,49 +32,49 @@
     }
 }
 
-- (void)cdf_safeInsertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
+- (void)safeInsertObjects:(NSArray *)objects atIndexes:(NSIndexSet *)indexes
 {
     if (objects && indexes) {
         [self insertObjects:objects atIndexes:indexes];
     }
 }
 
-- (void)cdf_safeReplaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject
+- (void)safeReplaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject
 {
     if (index < self.count && anObject) {
         [self replaceObjectAtIndex:index withObject:anObject];
     }
 }
 
-- (void)cdf_safeReplaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(NSArray *)objects
+- (void)safeReplaceObjectsAtIndexes:(NSIndexSet *)indexes withObjects:(NSArray *)objects
 {
     if (indexes && objects && indexes.count == objects.count) {
         [self replaceObjectsAtIndexes:indexes withObjects:objects];
     }
 }
 
-- (void)cdf_safeRemoveObject:(id)anObject
+- (void)safeRemoveObject:(id)anObject
 {
     if (anObject && [self containsObject:anObject]) {
         [self removeObject:anObject];
     }
 }
 
-- (void)cdf_safeRemoveLastObject
+- (void)safeRemoveLastObject
 {
     if (self.count > 0) {
         [self removeLastObject];
     }
 }
 
-- (void)cdf_safeRemoveObjectAtIndex:(NSUInteger)index
+- (void)safeRemoveObjectAtIndex:(NSUInteger)index
 {
     if (index < self.count) {
         [self removeObjectAtIndex:index];
     }
 }
 
-- (void)cdf_safeRemoveObjectsAtIndexes:(NSIndexSet *)indexes
+- (void)safeRemoveObjectsAtIndexes:(NSIndexSet *)indexes
 {
     __block BOOL outOfRange = NO;
     [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL * _Nonnull stop) {
@@ -88,21 +88,21 @@
     }
 }
 
-- (void)cdf_safeRemoveObject:(id)anObject inRange:(NSRange)aRange
+- (void)safeRemoveObject:(id)anObject inRange:(NSRange)aRange
 {
     if (anObject && (aRange.location + aRange.length) <= self.count) {
         [self removeObject:anObject inRange:aRange];
     }
 }
 
-- (void)cdf_safeRemoveObjectIdenticalTo:(id)anObject inRange:(NSRange)aRange
+- (void)safeRemoveObjectIdenticalTo:(id)anObject inRange:(NSRange)aRange
 {
     if (anObject && (aRange.length + aRange.location) <= self.count) {
         [self removeObjectIdenticalTo:anObject inRange:aRange];
     }
 }
 
-- (void)cdf_safeSetObject:(id)anObject atIndexedSubscript:(NSUInteger)index
+- (void)safeSetObject:(id)anObject atIndexedSubscript:(NSUInteger)index
 {
     if (anObject && index < self.count) {
         [self setObject:anObject atIndexedSubscript:index];

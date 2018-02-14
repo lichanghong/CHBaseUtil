@@ -123,27 +123,27 @@
         }
         else
         {
-            NSString *type = [NSString stringWithCString:argtype encoding:NSUTF8StringEncoding];
-            if ([type isEqualToString:@"{CGRect={CGPoint=ff}{CGSize=ff}}"])
-            {
-                CGRect arect = va_arg(arguments, CGRect);
-                [inv setArgument:&arect atIndex:argcount++];
-            }
-            else if ([type isEqualToString:@"{CGPoint=ff}"])
-            {
-                CGPoint apoint = va_arg(arguments, CGPoint);
-                [inv setArgument:&apoint atIndex:argcount++];
-            }
-            else if ([type isEqualToString:@"{CGSize=ff}"])
-            {
-                CGSize asize = va_arg(arguments, CGSize);
-                [inv setArgument:&asize atIndex:argcount++];
-            }
-            else
-            {
-                void *ptr = va_arg(arguments, void *);
-                [inv setArgument:ptr atIndex:argcount++];
-            }
+//            NSString *type = [NSString stringWithCString:argtype encoding:NSUTF8StringEncoding];
+//            if ([type isEqualToString:@"{CGRect={CGPoint=ff}{CGSize=ff}}"])
+//            {
+//                CGRect arect = va_arg(arguments, CGRect);
+//                [inv setArgument:&arect atIndex:argcount++];
+//            }
+//            else if ([type isEqualToString:@"{CGPoint=ff}"])
+//            {
+//                CGPoint apoint = va_arg(arguments, CGPoint);
+//                [inv setArgument:&apoint atIndex:argcount++];
+//            }
+//            else if ([type isEqualToString:@"{CGSize=ff}"])
+//            {
+//                CGSize asize = va_arg(arguments, CGSize);
+//                [inv setArgument:&asize atIndex:argcount++];
+//            }
+//            else
+//            {
+//                void *ptr = va_arg(arguments, void *);
+//                [inv setArgument:ptr atIndex:argcount++];
+//            }
         }
     }
     

@@ -3,110 +3,110 @@
 //  Created by lichanghong on 13/02/2018.
 //  Copyright © 2018 lichanghong. All rights reserved.
 
-#import "NSString+CDFURL.h"
+#import "NSString+CHURL.h"
 
-#define CDFLegalString(str) (str && [str isKindOfClass:[NSString class]])
+#define chLegalString(str) (str && [str isKindOfClass:[NSString class]])
 
-@implementation NSString (CDFURL)
+@implementation NSString (CHURL)
 
 #pragma mark - URL
 
-- (NSString *)cdf_urlScheme
+- (NSString *)ch_urlScheme
 {
-    return [self cdf_urlSchemeSupportChinese:YES];
+    return [self ch_urlSchemeSupportChinese:YES];
 }
 
-- (NSString *)cdf_urlSchemeSupportChinese:(BOOL)support
+- (NSString *)ch_urlSchemeSupportChinese:(BOOL)support
 {
     NSString *formatURL = self;
     if (support) {
         formatURL = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     }
-    if ([self cdf_isValidURLSupportChinese:support]) {
+    if ([self ch_isValidURLSupportChinese:support]) {
         NSURL *url = [NSURL URLWithString:formatURL];
         return url.scheme;
     }
     return nil;
 }
 
-- (NSString *)cdf_urlHost
+- (NSString *)ch_urlHost
 {
-    return [self cdf_urlHostSupportChinese:YES];
+    return [self ch_urlHostSupportChinese:YES];
 }
 
-- (NSString *)cdf_urlHostSupportChinese:(BOOL)support
+- (NSString *)ch_urlHostSupportChinese:(BOOL)support
 {
     NSString *formatURL = self;
     if (support) {
         formatURL = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     }
-    if ([self cdf_isValidURLSupportChinese:support]) {
+    if ([self ch_isValidURLSupportChinese:support]) {
         NSURL *url = [NSURL URLWithString:formatURL];
         return url.host;
     }
     return nil;
 }
 
-- (NSString *)cdf_urlPath
+- (NSString *)ch_urlPath
 {
-    return [self cdf_urlPathSupportChinese:YES];
+    return [self ch_urlPathSupportChinese:YES];
 }
 
-- (NSString *)cdf_urlPathSupportChinese:(BOOL)support
+- (NSString *)ch_urlPathSupportChinese:(BOOL)support
 {
     NSString *formatURL = self;
     if (support) {
         formatURL = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     }
-    if ([self cdf_isValidURLSupportChinese:support]) {
+    if ([self ch_isValidURLSupportChinese:support]) {
         NSURL *url = [NSURL URLWithString:formatURL];
         return url.path;
     }
     return nil;
 }
 
-- (NSString *)cdf_urlQuery
+- (NSString *)ch_urlQuery
 {
-    return [self cdf_urlQuerySupportChinese:YES];
+    return [self ch_urlQuerySupportChinese:YES];
 }
 
-- (NSString *)cdf_urlQuerySupportChinese:(BOOL)support
+- (NSString *)ch_urlQuerySupportChinese:(BOOL)support
 {
     NSString *formatURL = self;
     if (support) {
         formatURL = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     }
-    if ([self cdf_isValidURLSupportChinese:support]) {
+    if ([self ch_isValidURLSupportChinese:support]) {
         NSURL *url = [NSURL URLWithString:formatURL];
         return url.query;
     }
     return nil;
 }
 
-- (NSString *)cdf_urlFragment
+- (NSString *)ch_urlFragment
 {
-    return [self cdf_urlFragmentSupportChinese:YES];
+    return [self ch_urlFragmentSupportChinese:YES];
 }
 
-- (NSString *)cdf_urlFragmentSupportChinese:(BOOL)support
+- (NSString *)ch_urlFragmentSupportChinese:(BOOL)support
 {
     NSString *formatURL = self;
     if (support) {
         formatURL = [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     }
-    if ([self cdf_isValidURLSupportChinese:support]) {
+    if ([self ch_isValidURLSupportChinese:support]) {
         NSURL *url = [NSURL URLWithString:formatURL];
         return url.fragment;
     }
     return nil;
 }
 
-- (NSDictionary *)cdf_urlQueryDictionary
+- (NSDictionary *)ch_urlQueryDictionary
 {
     // 先判断是否是url
     NSString *queryStr = nil;
-    if (self.cdf_isValidURL) {
-        queryStr = self.cdf_urlQuery;
+    if (self.ch_isValidURL) {
+        queryStr = self.ch_urlQuery;
     }else {
         queryStr = self;
     }
@@ -114,7 +114,6 @@
     NSMutableDictionary *queryDict = [NSMutableDictionary dictionary];
     NSArray *components = [queryStr componentsSeparatedByString:@"&"];
     
-    __block NSArray *tempArr = nil;
     __block NSString *key = nil;
     __block NSString *value = nil;
     [components enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -134,7 +133,7 @@
     return queryDict;
 }
 
-- (NSString *)cdf_urlWithoutQuery
+- (NSString *)ch_urlWithoutQuery
 {
     NSURL *URL = [NSURL URLWithString:self];
     NSString *query = URL.query;
@@ -156,12 +155,12 @@
     }
 }
 
-- (BOOL)cdf_isValidURL
+- (BOOL)ch_isValidURL
 {
-    return [self cdf_isValidURLSupportChinese:YES];
+    return [self ch_isValidURLSupportChinese:YES];
 }
 
-- (BOOL)cdf_isValidURLSupportChinese:(BOOL)support
+- (BOOL)ch_isValidURLSupportChinese:(BOOL)support
 {
     if (self == nil || self.length == 0) {
         return NO;
@@ -184,15 +183,15 @@
     }
 }
 
-- (NSString *)cdf_urlQueryAppendKey:(NSString *)key andValue:(NSString *)value
+- (NSString *)ch_urlQueryAppendKey:(NSString *)key andValue:(NSString *)value
 {
-    if(!CDFLegalString(key) || !CDFLegalString(value) || !key.length || !value.length) {
+    if(!chLegalString(key) || !chLegalString(value) || !key.length || !value.length) {
         return self;
     }
     
     value = [value stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    if (self.cdf_isValidURL) {
-        if (self.cdf_urlQuery.length>0) {
+    if (self.ch_isValidURL) {
+        if (self.ch_urlQuery.length>0) {
             return [NSString stringWithFormat:@"%@&%@=%@", self, key, value];
         }else {
             return [NSString stringWithFormat:@"%@?%@=%@", self, key, value];
