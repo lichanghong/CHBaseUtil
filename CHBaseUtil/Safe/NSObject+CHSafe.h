@@ -5,8 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (CDF)
+@interface NSObject (CHSafe)
 
-- (void)cdf_safePerformSelector:(NSString *)selectorName;
+- (void)safePerformSelector:(NSString *)selectorName;
 
 @end

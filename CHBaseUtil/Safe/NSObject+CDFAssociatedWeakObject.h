@@ -5,7 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSObject (CDFAssociatedWeakObject)
+@interface NSObject (CHAssociatedWeakObject)
 
 - (void)setAssociatedWeakObject:(id)obj forKey:(const char *)key;
 

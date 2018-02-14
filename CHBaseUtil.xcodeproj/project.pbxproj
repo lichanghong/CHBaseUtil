@@ -25,8 +25,8 @@
 		8127B2882032DB8A0024561A /* UIFont+Util.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B2862032DB8A0024561A /* UIFont+Util.h */; };
 		8127B2A52032FBDE0024561A /* NSMutableDictionary+CHSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B28D2032FBDB0024561A /* NSMutableDictionary+CHSafe.m */; };
 		8127B2A62032FBDE0024561A /* NSDateFormatter+CDFCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B28E2032FBDB0024561A /* NSDateFormatter+CDFCommon.h */; };
-		8127B2A72032FBDE0024561A /* NSMutableString+CDFSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B28F2032FBDB0024561A /* NSMutableString+CDFSafe.m */; };
-		8127B2A82032FBDE0024561A /* NSObject+CDF.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B2902032FBDB0024561A /* NSObject+CDF.h */; };
+		8127B2A72032FBDE0024561A /* NSMutableString+CHSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B28F2032FBDB0024561A /* NSMutableString+CHSafe.m */; };
+		8127B2A82032FBDE0024561A /* NSObject+CHSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B2902032FBDB0024561A /* NSObject+CHSafe.h */; };
 		8127B2A92032FBDE0024561A /* NSArray+CHSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B2912032FBDB0024561A /* NSArray+CHSafe.m */; };
 		8127B2AA2032FBDE0024561A /* NSDictionary+CHSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B2922032FBDB0024561A /* NSDictionary+CHSafe.h */; };
 		8127B2AB2032FBDE0024561A /* NSObject+CDFAssociatedWeakObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B2932032FBDB0024561A /* NSObject+CDFAssociatedWeakObject.m */; };
@@ -38,13 +38,13 @@
 		8127B2B32032FBDE0024561A /* NSString+CHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B29B2032FBDC0024561A /* NSString+CHUtil.m */; };
 		8127B2B42032FBDE0024561A /* NSMutableArray+CHSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B29C2032FBDC0024561A /* NSMutableArray+CHSafe.h */; };
 		8127B2B52032FBDE0024561A /* NSMutableDictionary+CHSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B29D2032FBDC0024561A /* NSMutableDictionary+CHSafe.h */; };
-		8127B2B62032FBDE0024561A /* NSObject+CDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B29E2032FBDD0024561A /* NSObject+CDF.m */; };
+		8127B2B62032FBDE0024561A /* NSObject+CHSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B29E2032FBDD0024561A /* NSObject+CHSafe.m */; };
 		8127B2B72032FBDE0024561A /* NSString+CHUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B29F2032FBDD0024561A /* NSString+CHUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8127B2B82032FBDE0024561A /* NSDate+CHUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B2A02032FBDD0024561A /* NSDate+CHUtil.h */; };
 		8127B2B92032FBDE0024561A /* NSDateFormatter+CDFCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B2A12032FBDD0024561A /* NSDateFormatter+CDFCommon.m */; };
 		8127B2BA2032FBDE0024561A /* NSMutableArray+CHSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B2A22032FBDD0024561A /* NSMutableArray+CHSafe.m */; };
 		8127B2BB2032FBDE0024561A /* NSString+CHURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8127B2A32032FBDD0024561A /* NSString+CHURL.m */; };
-		8127B2BC2032FBDE0024561A /* NSMutableString+CDFSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B2A42032FBDE0024561A /* NSMutableString+CDFSafe.h */; };
+		8127B2BC2032FBDE0024561A /* NSMutableString+CHSafe.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127B2A42032FBDE0024561A /* NSMutableString+CHSafe.h */; };
 		95BDB4D21ED933B9002AF0AB /* CHBaseUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D01ED933B9002AF0AB /* CHBaseUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95BDB4D91ED9522A002AF0AB /* CHDefinesLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDB4D81ED9522A002AF0AB /* CHDefinesLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -68,8 +68,8 @@
 		8127B2862032DB8A0024561A /* UIFont+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Util.h"; path = "UI/UIFont+Util.h"; sourceTree = "<group>"; };
 		8127B28D2032FBDB0024561A /* NSMutableDictionary+CHSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+CHSafe.m"; path = "Safe/NSMutableDictionary+CHSafe.m"; sourceTree = "<group>"; };
 		8127B28E2032FBDB0024561A /* NSDateFormatter+CDFCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+CDFCommon.h"; path = "Safe/NSDateFormatter+CDFCommon.h"; sourceTree = "<group>"; };
-		8127B28F2032FBDB0024561A /* NSMutableString+CDFSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableString+CDFSafe.m"; path = "Safe/NSMutableString+CDFSafe.m"; sourceTree = "<group>"; };
-		8127B2902032FBDB0024561A /* NSObject+CDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+CDF.h"; path = "Safe/NSObject+CDF.h"; sourceTree = "<group>"; };
+		8127B28F2032FBDB0024561A /* NSMutableString+CHSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableString+CHSafe.m"; path = "Safe/NSMutableString+CHSafe.m"; sourceTree = "<group>"; };
+		8127B2902032FBDB0024561A /* NSObject+CHSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+CHSafe.h"; path = "Safe/NSObject+CHSafe.h"; sourceTree = "<group>"; };
 		8127B2912032FBDB0024561A /* NSArray+CHSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+CHSafe.m"; path = "Safe/NSArray+CHSafe.m"; sourceTree = "<group>"; };
 		8127B2922032FBDB0024561A /* NSDictionary+CHSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CHSafe.h"; path = "Safe/NSDictionary+CHSafe.h"; sourceTree = "<group>"; };
 		8127B2932032FBDB0024561A /* NSObject+CDFAssociatedWeakObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CDFAssociatedWeakObject.m"; path = "Safe/NSObject+CDFAssociatedWeakObject.m"; sourceTree = "<group>"; };
@@ -81,13 +81,13 @@
 		8127B29B2032FBDC0024561A /* NSString+CHUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CHUtil.m"; path = "Safe/NSString+CHUtil.m"; sourceTree = "<group>"; };
 		8127B29C2032FBDC0024561A /* NSMutableArray+CHSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+CHSafe.h"; path = "Safe/NSMutableArray+CHSafe.h"; sourceTree = "<group>"; };
 		8127B29D2032FBDC0024561A /* NSMutableDictionary+CHSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+CHSafe.h"; path = "Safe/NSMutableDictionary+CHSafe.h"; sourceTree = "<group>"; };
-		8127B29E2032FBDD0024561A /* NSObject+CDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CDF.m"; path = "Safe/NSObject+CDF.m"; sourceTree = "<group>"; };
+		8127B29E2032FBDD0024561A /* NSObject+CHSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+CHSafe.m"; path = "Safe/NSObject+CHSafe.m"; sourceTree = "<group>"; };
 		8127B29F2032FBDD0024561A /* NSString+CHUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CHUtil.h"; path = "Safe/NSString+CHUtil.h"; sourceTree = "<group>"; };
 		8127B2A02032FBDD0024561A /* NSDate+CHUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+CHUtil.h"; path = "Safe/NSDate+CHUtil.h"; sourceTree = "<group>"; };
 		8127B2A12032FBDD0024561A /* NSDateFormatter+CDFCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+CDFCommon.m"; path = "Safe/NSDateFormatter+CDFCommon.m"; sourceTree = "<group>"; };
 		8127B2A22032FBDD0024561A /* NSMutableArray+CHSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+CHSafe.m"; path = "Safe/NSMutableArray+CHSafe.m"; sourceTree = "<group>"; };
 		8127B2A32032FBDD0024561A /* NSString+CHURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CHURL.m"; path = "Safe/NSString+CHURL.m"; sourceTree = "<group>"; };
-		8127B2A42032FBDE0024561A /* NSMutableString+CDFSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableString+CDFSafe.h"; path = "Safe/NSMutableString+CDFSafe.h"; sourceTree = "<group>"; };
+		8127B2A42032FBDE0024561A /* NSMutableString+CHSafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableString+CHSafe.h"; path = "Safe/NSMutableString+CHSafe.h"; sourceTree = "<group>"; };
 		95BDB4CD1ED933B9002AF0AB /* CHBaseUtil.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHBaseUtil.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BDB4D01ED933B9002AF0AB /* CHBaseUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CHBaseUtil.h; sourceTree = "<group>"; };
 		95BDB4D11ED933B9002AF0AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -162,10 +162,10 @@
 				8127B2A22032FBDD0024561A /* NSMutableArray+CHSafe.m */,
 				8127B29D2032FBDC0024561A /* NSMutableDictionary+CHSafe.h */,
 				8127B28D2032FBDB0024561A /* NSMutableDictionary+CHSafe.m */,
-				8127B2A42032FBDE0024561A /* NSMutableString+CDFSafe.h */,
-				8127B28F2032FBDB0024561A /* NSMutableString+CDFSafe.m */,
-				8127B2902032FBDB0024561A /* NSObject+CDF.h */,
-				8127B29E2032FBDD0024561A /* NSObject+CDF.m */,
+				8127B2A42032FBDE0024561A /* NSMutableString+CHSafe.h */,
+				8127B28F2032FBDB0024561A /* NSMutableString+CHSafe.m */,
+				8127B2902032FBDB0024561A /* NSObject+CHSafe.h */,
+				8127B29E2032FBDD0024561A /* NSObject+CHSafe.m */,
 				8127B2982032FBDC0024561A /* NSObject+CDFAssociatedWeakObject.h */,
 				8127B2932032FBDB0024561A /* NSObject+CDFAssociatedWeakObject.m */,
 				8127B2742032C9CF0024561A /* NSString+CHSafe.h */,
@@ -210,7 +210,7 @@
 			files = (
 				8127B2AC2032FBDE0024561A /* NSArray+CHSafe.h in Headers */,
 				8127B2B42032FBDE0024561A /* NSMutableArray+CHSafe.h in Headers */,
-				8127B2A82032FBDE0024561A /* NSObject+CDF.h in Headers */,
+				8127B2A82032FBDE0024561A /* NSObject+CHSafe.h in Headers */,
 				95BDB4D91ED9522A002AF0AB /* CHDefinesLib.h in Headers */,
 				8127B2B52032FBDE0024561A /* NSMutableDictionary+CHSafe.h in Headers */,
 				8127B2B82032FBDE0024561A /* NSDate+CHUtil.h in Headers */,
@@ -228,7 +228,7 @@
 				8127B2642032C41F0024561A /* UIColor+Util.h in Headers */,
 				8127B26E2032C89D0024561A /* UIImage+Util.h in Headers */,
 				8127B2652032C41F0024561A /* UIView+Toast.h in Headers */,
-				8127B2BC2032FBDE0024561A /* NSMutableString+CDFSafe.h in Headers */,
+				8127B2BC2032FBDE0024561A /* NSMutableString+CHSafe.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,7 +303,7 @@
 			files = (
 				8127B2AB2032FBDE0024561A /* NSObject+CDFAssociatedWeakObject.m in Sources */,
 				8127B2662032C41F0024561A /* UIView+Toast.m in Sources */,
-				8127B2A72032FBDE0024561A /* NSMutableString+CDFSafe.m in Sources */,
+				8127B2A72032FBDE0024561A /* NSMutableString+CHSafe.m in Sources */,
 				8127B2AF2032FBDE0024561A /* NSDate+CHUtil.m in Sources */,
 				8127B25A2032C2D00024561A /* UIView+CHFrame.m in Sources */,
 				8127B2692032C7720024561A /* UILabel+Util.m in Sources */,
@@ -312,7 +312,7 @@
 				8127B2622032C41F0024561A /* UIColor+Util.m in Sources */,
 				8127B2B92032FBDE0024561A /* NSDateFormatter+CDFCommon.m in Sources */,
 				8127B2A92032FBDE0024561A /* NSArray+CHSafe.m in Sources */,
-				8127B2B62032FBDE0024561A /* NSObject+CDF.m in Sources */,
+				8127B2B62032FBDE0024561A /* NSObject+CHSafe.m in Sources */,
 				8127B2AE2032FBDE0024561A /* NSDictionary+CHSafe.m in Sources */,
 				8127B2612032C41F0024561A /* UIView+CHGesture.m in Sources */,
 				8127B2872032DB8A0024561A /* UIFont+Util.m in Sources */,

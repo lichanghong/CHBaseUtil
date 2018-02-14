@@ -5,8 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSMutableString (CDFSafe)
+@interface NSMutableString (CHSafe)
 
-- (void)cdf_safeAppendString:(NSString *)str;
+- (void)safeAppendString:(NSString *)str;
 
 @end

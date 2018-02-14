@@ -6,15 +6,15 @@
 #import <OBJC/runtime.h>
 #import "NSObject+CDFAssociatedWeakObject.h"
 
-@interface CDFAssociatedWeakObject : NSObject
+@interface CHAssociatedWeakObject : NSObject
 @property (nonatomic, weak) id weakObject;
 + (instancetype)objectWithWeakObject:(id)weakObject;
 @end
 
-@implementation CDFAssociatedWeakObject
+@implementation CHAssociatedWeakObject
 + (instancetype)objectWithWeakObject:(id)weakObject
 {
-    CDFAssociatedWeakObject *obj = [[self alloc] init];
+    CHAssociatedWeakObject *obj = [[self alloc] init];
     obj.weakObject = weakObject;
     return obj;
 }
@@ -22,17 +22,17 @@
 
 
 
-@implementation NSObject (CDFAssociatedWeakObject)
+@implementation NSObject (CHAssociatedWeakObject)
 
 - (void)setAssociatedWeakObject:(id)obj forKey:(const char *)key
 {
-    objc_setAssociatedObject(self, key, [CDFAssociatedWeakObject objectWithWeakObject:obj], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, key, [CHAssociatedWeakObject objectWithWeakObject:obj], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (id)associatedWeakObjectForKey:(const char *)key
 {
     
-    CDFAssociatedWeakObject *obj = objc_getAssociatedObject(self, key);
+    CHAssociatedWeakObject *obj = objc_getAssociatedObject(self, key);
     if (obj) {
         return obj.weakObject;
     } else {
