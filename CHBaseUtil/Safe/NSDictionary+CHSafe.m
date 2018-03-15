@@ -33,8 +33,7 @@
     id obj = [self valueForKey:key];
     return [obj integerValue];
 }
-
-- (CGFloat)safecgFloatForKey:(NSString *)key
+- (CGFloat)safeFloatForKey:(NSString *)key
 {
     id obj = [self valueForKey:key];
     return [obj doubleValue];

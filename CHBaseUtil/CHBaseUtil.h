@@ -27,4 +27,7 @@ FOUNDATION_EXPORT const unsigned char CHBaseUtilVersionString[];
 #import "UILabel+Util.h"
 #import "UIView+CHGesture.h"
 #import "UIView+CHFrame.h"
+#import "CHSingleton.h"
+#import "CHUserDefaults.h"
+#import "NSFileManager+Util.h"
 

@@ -25,7 +25,7 @@ FOUNDATION_EXPORT const unsigned char CHDefinesLibVersionString[];
 //角度转换
 #define degreesToRadinas(x) (M_PI * (x)/180.0)
 
-#define APP_OBJ                 [UIApplication sharedApplication]
+#define APP                     [UIApplication sharedApplication]
 #define APP_DELEGATE            ((AppDelegate *)[APP_OBJ delegate])
 #define AppWindow               (((AppDelegate *)[UIApplication sharedApplication].delegate).window)
 
