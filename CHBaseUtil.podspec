@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "CHBaseUtil 封装了一些常用的工具类，！！！ created by 峰云逸飞-李长鸿 ！！！有任何问题请给我留言交流"
 
   s.description  = <<-DESC
@@ -44,8 +44,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'UI' do |ui|
     ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
-    ui.source_files = 'CHBaseUtil_VC/Classes/**/*'
-
+  end
+      
+  s.subspec 'VC' do |vc|
+    vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
   end
 
 
