@@ -51,7 +51,7 @@ Pod::Spec.new do |s|
     vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
   end
 
-   s.subspec 'JKDBModel' do |ss|
+  s.subspec 'JKDBModel' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_JKDBModel_Category/Classes/**/*'
     ss.public_header_files = 'CHBaseUtil_JKDBModel_Category/Classes/JKDBModel+JKDBModel.h'
