@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
                       CHBaseUtil 封装了一些常用工具类，新创建项目的时候可以直接引用
           CHBaseUtil_UI, 主要是一些常用的UI方面的category。Font Image Label Color View Toast Frame Cell 之类的category方法。 
           CHBaseUtil_VC 是ViewController的一些实用方法的封装，为了今后复用
+          ios Router 的实现，比现有已知第三方更简单易用，注册rul是在运行时自动注册
 
                    DESC
 
@@ -42,12 +43,16 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
-  s.subspec 'UI' do |ui|
-    ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
-  end
+  # s.subspec 'UI' do |ui|
+  #   ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
+  # end
       
-  s.subspec 'VC' do |vc|
-    vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
+  # s.subspec 'VC' do |vc|
+  #   vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
+  # end
+
+  s.subspec 'Router' do |router|
+    router.source_files = 'CHBaseUtil_Router/Classes/**/*'
   end
 
 
