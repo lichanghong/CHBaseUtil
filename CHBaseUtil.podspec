@@ -47,42 +47,41 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-  s.default_subspecs = 'VC', 'UI', 'Router', 'Safe' 
+  # s.default_subspecs = 'VC', 'UI', 'Router', 'Safe', 'JKDBModel'
 
-  s.subspec 'UI' do |ui|
-    ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
-  end
+  # s.subspec 'UI' do |ui|
+  #   ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
+  # end
       
-  s.subspec 'VC' do |vc|
-    vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
-  end
-
-  s.subspec 'Router' do |ss|
-    ss.ios.deployment_target = '8.0'
-    ss.source_files = 'CHBaseUtil_Router/Classes/**/*'
-    ss.ios.frameworks = 'UIKit', 'Foundation'
-  end
-   
-  s.subspec 'Safe' do |ss|
-    ss.ios.deployment_target = '8.0'
-    ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
-    ss.public_header_files = 'CHBaseUtil_Safe/Classes/CHBaseUtil_Safe.h'
-  end
-
-  # s.subspec 'Util' do |ss|
-  #   ss.ios.deployment_target = '8.0'
-  #   ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
-  #   ss.public_header_files = 'CHBaseUtil_Util/Classes/CHBaseUtil_Util.h'
-  #   ss.dependency 'CHBaseUtil_Util/CHBaseUtil_Safe'
+  # s.subspec 'VC' do |vc|
+  #   vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
   # end
 
-  # s.subspec 'JKDBModel' do |ss|
+  #  s.subspec 'JKDBModel' do |ss|
   #   ss.ios.deployment_target = '8.0'
   #   ss.source_files = 'CHBaseUtil_JKDBModel_Category/Classes/**/*'
   #   ss.public_header_files = 'CHBaseUtil_JKDBModel_Category/Classes/JKDBModel+JKDBModel.h'
   #   ss.dependency 'FMDB', '~> 2.7.2'
   #   ss.libraries     = "sqlite3"
   # end
+
+  # s.subspec 'Router' do |ss|
+  #   ss.ios.deployment_target = '8.0'
+  #   ss.source_files = 'CHBaseUtil_Router/Classes/**/*'
+  #   ss.ios.frameworks = 'UIKit', 'Foundation'
+  # end
+   
+  s.subspec 'Safe' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
+  end
+
+  s.subspec 'Util' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
+  end
+
+ 
 
 
 

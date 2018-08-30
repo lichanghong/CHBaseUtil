@@ -4,7 +4,7 @@
 //  Copyright © 2018 lichanghong. All rights reserved.
 
 #import "NSString+CHUtil.h"
-#import "NSString+CHSafe.h"
+//#import "NSString+CHSafe.h"
 
 @implementation NSString (CHUtil)
 
@@ -170,11 +170,19 @@
 - (BOOL)isNumbers
 {
     for (NSUInteger i = 0; i < self.length; i++) {
-        if (!isnumber([self safeCharacterAtIndex:i])) {
+        if (!isnumber([self msafeCharacterAtIndex:i])) {
             return NO;
         }
     }
     return YES;
+}
+
+- (unichar)msafeCharacterAtIndex:(NSUInteger)index
+{
+    if (index >= self.length) {
+        return '\0';
+    }
+    return [self characterAtIndex:index];
 }
 
 - (BOOL)validateUrl

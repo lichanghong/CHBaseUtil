@@ -12,5 +12,5 @@
 
 #endif /* CHBaseUtil_Util_h */
 
-#import "CHSingleton.h"
+#import "Singleton/CHSingleton.h"
  

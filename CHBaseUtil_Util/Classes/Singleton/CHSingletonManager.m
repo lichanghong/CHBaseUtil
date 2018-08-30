@@ -6,8 +6,32 @@
 //  Copyright © 2017年 lichanghong. All rights reserved.
 //
 
-#import "NSMutableDictionary+CHSafe.h"
 #import "CHSingletonManager.h"
+
+@interface NSMutableDictionary (CDFSafe)
+@end
+@implementation NSMutableDictionary (CDFSafe)
+
+- (void)chb_safeSetObject:(id)anObject forKey:(id<NSCopying>)aKey
+{
+    if (!anObject || !aKey) {
+        return ;
+    }
+    [self setObject:anObject forKey:aKey];
+}
+
+- (void)chb_safeRemoveObjectForKey:(id)aKey
+{
+    if(!aKey) {
+        return;
+    }
+    [self removeObjectForKey:aKey];
+}
+
+
+@end
+
+
 
 static CHSingletonManager *manager = nil;
 
@@ -49,7 +73,7 @@ static CHSingletonManager *manager = nil;
         obj = [self.singletons objectForKey:key];
         if (!obj) {
             obj = [[aClass alloc] init];
-            [self.singletons ch_safeSetObject:obj forKey:key];
+            [self.singletons chb_safeSetObject:obj forKey:key];
         }
     }
     [self.recursiveLock unlock];
@@ -68,7 +92,7 @@ static CHSingletonManager *manager = nil;
         obj = [self.singletons objectForKey:classKey];
         if (!obj) {
             obj = [[aClass alloc] init];
-            [self.singletons ch_safeSetObject:obj forKey:classKey];
+            [self.singletons chb_safeSetObject:obj forKey:classKey];
         }
     }
     [self.recursiveLock unlock];
@@ -80,7 +104,7 @@ static CHSingletonManager *manager = nil;
 {
     NSString *key = NSStringFromClass(aClass);
     [self.recursiveLock lock];
-    [self.singletons ch_safeRemoveObjectForKey:key];
+    [self.singletons chb_safeRemoveObjectForKey:key];
     [self.recursiveLock unlock];
 }
 
@@ -90,7 +114,7 @@ static CHSingletonManager *manager = nil;
     NSString *classKey = [NSString stringWithFormat:@"%@-%@", className, key];
     
     [self.recursiveLock lock];
-    [self.singletons ch_safeRemoveObjectForKey:classKey];
+    [self.singletons chb_safeRemoveObjectForKey:classKey];
     [self.recursiveLock unlock];
 }
 
