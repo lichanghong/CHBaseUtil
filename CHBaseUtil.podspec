@@ -1,7 +1,7 @@
 # pod lib lint --use-libraries --verbose --allow-warnings
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
-  s.version      = "0.0.8"
+  s.version      = "0.0.9"
   s.summary      = "CHBaseUtil 封装了一些常用的工具类，！！！ created by 峰云逸飞-李长鸿 ！！！有任何问题请给我留言交流"
 
   s.description  = <<-DESC
@@ -11,6 +11,8 @@ Pod::Spec.new do |s|
           ios Router 的实现，比现有已知第三方更简单易用，注册url是在运行时自动注册
           CHBaseUtil_Safe 是数组或字典等的一些实用方法的封装，为了今后复用 
           CHBaseUtil_Util, 主要是开发中常用到的一些小工具，如自定义的UserDefault、FileManager、Digest、Observer、Regex、Singleton 
+          CHBaseUtil_JKDBModel_Category.为JKDBModel添加获取行数的方法
+
                    DESC
 
   s.homepage     = "https://github.com/lichanghong/CHBaseUtil.git"
@@ -45,6 +47,7 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+  s.default_subspecs = 'VC', 'UI', 'Router', 'Safe' 
 
   s.subspec 'UI' do |ui|
     ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
@@ -73,6 +76,13 @@ Pod::Spec.new do |s|
   #   ss.dependency 'CHBaseUtil_Util/CHBaseUtil_Safe'
   # end
 
+  # s.subspec 'JKDBModel' do |ss|
+  #   ss.ios.deployment_target = '8.0'
+  #   ss.source_files = 'CHBaseUtil_JKDBModel_Category/Classes/**/*'
+  #   ss.public_header_files = 'CHBaseUtil_JKDBModel_Category/Classes/JKDBModel+JKDBModel.h'
+  #   ss.dependency 'FMDB', '~> 2.7.2'
+  #   ss.libraries     = "sqlite3"
+  # end
 
 
 
