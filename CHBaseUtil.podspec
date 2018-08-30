@@ -1,7 +1,7 @@
 # pod lib lint --use-libraries --verbose --allow-warnings
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
-  s.version      = "0.5.3"
+  s.version      = "1.0.0"
   s.summary      = "CHBaseUtil 封装了一些常用的工具类，！！！ created by 峰云逸飞-李长鸿 ！！！有任何问题请给我留言交流"
 
   s.description  = <<-DESC
@@ -41,39 +41,39 @@ Pod::Spec.new do |s|
 
  
   
-  # s.default_subspecs = 'VC', 'UI', 'Router', 'Safe', 'JKDBModel'
+  s.default_subspecs = 'VC', 'UI', 'Router', 'Safe', 'JKDBModel'
 
-  # s.subspec 'UI' do |ui|
-  #   ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
-  # end
+  s.subspec 'UI' do |ui|
+    ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
+  end
       
-  # s.subspec 'VC' do |vc|
-  #   vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
-  # end
+  s.subspec 'VC' do |vc|
+    vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
+  end
 
-  #  s.subspec 'JKDBModel' do |ss|
-  #   ss.ios.deployment_target = '8.0'
-  #   ss.source_files = 'CHBaseUtil_JKDBModel_Category/Classes/**/*'
-  #   ss.public_header_files = 'CHBaseUtil_JKDBModel_Category/Classes/JKDBModel+JKDBModel.h'
-  #   ss.dependency 'FMDB', '~> 2.7.2'
-  #   ss.libraries     = "sqlite3"
-  # end
+   s.subspec 'JKDBModel' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'CHBaseUtil_JKDBModel_Category/Classes/**/*'
+    ss.public_header_files = 'CHBaseUtil_JKDBModel_Category/Classes/JKDBModel+JKDBModel.h'
+    ss.dependency 'FMDB', '~> 2.7.2'
+    ss.libraries     = "sqlite3"
+  end
 
-  # s.subspec 'Router' do |ss|
-  #   ss.ios.deployment_target = '8.0'
-  #   ss.source_files = 'CHBaseUtil_Router/Classes/**/*'
-  #   ss.ios.frameworks = 'UIKit', 'Foundation'
-  # end
+  s.subspec 'Router' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'CHBaseUtil_Router/Classes/**/*'
+    ss.ios.frameworks = 'UIKit', 'Foundation'
+  end
    
-  # s.subspec 'Safe' do |ss|
-  #   ss.ios.deployment_target = '8.0'
-  #   ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
-  # end
+  s.subspec 'Safe' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
+  end
 
-  # s.subspec 'Util' do |ss|
-  #   ss.ios.deployment_target = '8.0'
-  #   ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
-  # end
+  s.subspec 'Util' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
+  end
 
  s.subspec 'FLEXInspector' do |ss|
     ss.ios.deployment_target = '8.0'
