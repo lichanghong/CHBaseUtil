@@ -1,7 +1,7 @@
 # pod lib lint --use-libraries --verbose --allow-warnings
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
-  s.version      = "0.5.2"
+  s.version      = "0.5.3"
   s.summary      = "CHBaseUtil 封装了一些常用的工具类，！！！ created by 峰云逸飞-李长鸿 ！！！有任何问题请给我留言交流"
 
   s.description  = <<-DESC
@@ -12,7 +12,9 @@ Pod::Spec.new do |s|
           CHBaseUtil_Safe 是数组或字典等的一些实用方法的封装，为了今后复用 
           CHBaseUtil_Util, 主要是开发中常用到的一些小工具，如自定义的UserDefault、FileManager、Digest、Observer、Regex、Singleton 
           CHBaseUtil_JKDBModel_Category.为JKDBModel添加获取行数的方法
-
+          an iOS app runtime debugger, vzinspector & flex 的整合及升级。FLEX ~> 2.4.0  & VZInspector ~> 0.1.3
+            1,修改VZInspectorOverlay.m，flex插件加入
+            2，加入文件VZCPUInspector VZCPUInspectorOverView 显示cpu读数
                    DESC
 
   s.homepage     = "https://github.com/lichanghong/CHBaseUtil.git"
@@ -37,16 +39,8 @@ Pod::Spec.new do |s|
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
 
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+ 
+  
   # s.default_subspecs = 'VC', 'UI', 'Router', 'Safe', 'JKDBModel'
 
   # s.subspec 'UI' do |ui|
@@ -71,17 +65,42 @@ Pod::Spec.new do |s|
   #   ss.ios.frameworks = 'UIKit', 'Foundation'
   # end
    
-  s.subspec 'Safe' do |ss|
-    ss.ios.deployment_target = '8.0'
-    ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
-  end
+  # s.subspec 'Safe' do |ss|
+  #   ss.ios.deployment_target = '8.0'
+  #   ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
+  # end
 
-  s.subspec 'Util' do |ss|
-    ss.ios.deployment_target = '8.0'
-    ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
-  end
+  # s.subspec 'Util' do |ss|
+  #   ss.ios.deployment_target = '8.0'
+  #   ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
+  # end
 
- 
+ s.subspec 'FLEXInspector' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'FLEXInspector/Classes/**/*'
+    ss.framework     = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
+    ss.source_files  = 'FLEXInspector/Classes/**/*.{h,c,m,mm}'
+    ss.libraries     = "z", "c++", "sqlite3"
+    mrr_files = [
+      'FLEXInspector/Classes/toolbox/mermoryProfile/vendor/allocationTrack/NSObject+VZAllocationTracker.mm',
+      'FLEXInspector/Classes/toolbox/mermoryProfile/vendor/allocationTrack/VZAllocationTrackerNSZombieSupport.mm',
+      'FLEXInspector/Classes/toolbox/mermoryProfile/vendor/Associations/VZAssociationManager.mm',
+      'FLEXInspector/Classes/toolbox/mermoryProfile/vendor/Layout/Blocks/VZBlockStrongLayout.m',
+      'FLEXInspector/Classes/toolbox/mermoryProfile/vendor/Layout/Blocks/VZBlockStrongRelationDetector.m',
+      'FLEXInspector/Classes/toolbox/mermoryProfile/vendor/Layout/Classes/VZClassStrongLayoutHelpers.m'
+    ]
+    files = Pathname.glob("FLEXInspector/Classes/**/*")
+    files = files.map {|file| file.to_path}
+    files = files.reject {|file| mrr_files.include?(file)}
+
+    ss.public_header_files = [ "FLEXInspector/Classes/**/*.{h}", "FLEXInspector/Classes/*.{h}" ]
+
+    # 解决 cannot create __weak reference in file using manual reference counting
+    ss.xcconfig = {
+      'CLANG_ENABLE_OBJC_WEAK' => 'YES'
+    }
+    ss.requires_arc = files
+  end
 
 
 
