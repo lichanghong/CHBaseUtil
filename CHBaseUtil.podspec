@@ -1,7 +1,7 @@
 # pod lib lint --use-libraries --verbose --allow-warnings
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "CHBaseUtil 封装了一些常用的工具类，！！！ created by 峰云逸飞-李长鸿 ！！！有任何问题请给我留言交流"
 
   s.description  = <<-DESC
@@ -73,6 +73,7 @@ Pod::Spec.new do |s|
   s.subspec 'Util' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
+    ss.library = 'c++'
   end
 
  s.subspec 'FLEXInspector' do |ss|
