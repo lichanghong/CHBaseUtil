@@ -1,14 +1,16 @@
+# pod lib lint --use-libraries --verbose --allow-warnings
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "CHBaseUtil 封装了一些常用的工具类，！！！ created by 峰云逸飞-李长鸿 ！！！有任何问题请给我留言交流"
 
   s.description  = <<-DESC
                       CHBaseUtil 封装了一些常用工具类，新创建项目的时候可以直接引用
           CHBaseUtil_UI, 主要是一些常用的UI方面的category。Font Image Label Color View Toast Frame Cell 之类的category方法。 
           CHBaseUtil_VC 是ViewController的一些实用方法的封装，为了今后复用
-          ios Router 的实现，比现有已知第三方更简单易用，注册rul是在运行时自动注册
-
+          ios Router 的实现，比现有已知第三方更简单易用，注册url是在运行时自动注册
+          CHBaseUtil_Safe 是数组或字典等的一些实用方法的封装，为了今后复用 
+          CHBaseUtil_Util, 主要是开发中常用到的一些小工具，如自定义的UserDefault、FileManager、Digest、Observer、Regex、Singleton 
                    DESC
 
   s.homepage     = "https://github.com/lichanghong/CHBaseUtil.git"
@@ -17,6 +19,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = { :git => "https://github.com/lichanghong/CHBaseUtil.git", :tag => "#{s.version}" }
   s.requires_arc = true
+  s.ios.deployment_target = '8.0'
 
 
 
@@ -43,18 +46,32 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
-  # s.subspec 'UI' do |ui|
-  #   ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
-  # end
+  s.subspec 'UI' do |ui|
+    ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
+  end
       
-  # s.subspec 'VC' do |vc|
-  #   vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
-  # end
-
-  s.subspec 'Router' do |router|
-    router.source_files = 'CHBaseUtil_Router/Classes/**/*'
+  s.subspec 'VC' do |vc|
+    vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
   end
 
+  s.subspec 'Router' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'CHBaseUtil_Router/Classes/**/*'
+    ss.ios.frameworks = 'UIKit', 'Foundation'
+  end
+   
+  s.subspec 'Safe' do |ss|
+    ss.ios.deployment_target = '8.0'
+    ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
+    ss.public_header_files = 'CHBaseUtil_Safe/Classes/CHBaseUtil_Safe.h'
+  end
+
+  # s.subspec 'Util' do |ss|
+  #   ss.ios.deployment_target = '8.0'
+  #   ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
+  #   ss.public_header_files = 'CHBaseUtil_Util/Classes/CHBaseUtil_Util.h'
+  #   ss.dependency 'CHBaseUtil_Util/CHBaseUtil_Safe'
+  # end
 
 
 
