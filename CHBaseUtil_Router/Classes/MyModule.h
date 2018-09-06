@@ -7,8 +7,8 @@
 //
 
 //- (IBAction)handleAction:(id)sender {
-//    //    [[CHRouter sharedInstance]openURL:@"app.soyoung://baike/home" sourceViewController:nil];
-//    [[CHRouter sharedInstance]openURL:@"app.soyoung://baike/home" routerParameters:nil sourceViewController:nil responseCallBack:^(CHRouterResponse *response) {
+//    //    [[CHRouter sharedInstance]openURL:@"app.xxx://xx/home" sourceViewController:nil];
+//    [[CHRouter sharedInstance]openURL:@"app.xxx://xx/home" routerParameters:nil sourceViewController:nil responseCallBack:^(CHRouterResponse *response) {
 //        NSLog(@"%@",response);
 //    }];
 //}
