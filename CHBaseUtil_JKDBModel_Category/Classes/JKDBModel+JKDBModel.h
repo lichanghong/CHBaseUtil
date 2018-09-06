@@ -1,9 +1,9 @@
 //
 //  JKDBModel.h
-//  SoYoungMobile40
+//  
 //
 //  Created by lichanghong on 7/13/18.
-//  Copyright © 2018 soyoung. All rights reserved.
+//  Copyright © 2018 lichanghong. All rights reserved.
 //
 
 /*
