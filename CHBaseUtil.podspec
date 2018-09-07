@@ -1,4 +1,8 @@
 # pod lib lint --use-libraries --verbose --allow-warnings
+# s.ios.vendored_frameworks = "xxx/**/*.framework"
+# s.ios.vendored_libraries = "xxx/**/*.a"
+# https://www.cnblogs.com/huntaiji/p/6908982.html
+
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
   s.version      = "1.0.2"
@@ -19,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/lichanghong/CHBaseUtil.git"
   s.license      = "MIT"
-  s.author             = { "李长鸿" => "1211054926@qq.com" }
+  s.author       = { "李长鸿" => "1211054926@qq.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/lichanghong/CHBaseUtil.git", :tag => "#{s.version}" }
   s.requires_arc = true

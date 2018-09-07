@@ -9,7 +9,7 @@
 #import "MyModule.h"
 #import "CHRouter.h"
 
-static NSString *const SYRouterBaikeHomeURLPattern = @"app.xxx://xx/home";
+static NSString *const SYRouterBaikeHomeURLPattern = @"app.xxx://baike/home";
 
 
 @implementation MyModule
