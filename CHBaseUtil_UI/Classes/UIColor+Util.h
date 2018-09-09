@@ -16,9 +16,9 @@
  */
 + (UIColor *)colorForHex:(NSString *)hexColor;
 + (UIColor *)colorForHex:(NSString *)hexColor alpha:(CGFloat)alpha;
-FOUNDATION_EXTERN UIColor *RedColor();
-FOUNDATION_EXTERN UIColor *ClearColor();
-FOUNDATION_EXTERN UIColor *RandomColor();
+FOUNDATION_EXTERN UIColor *RedColor(void);
+FOUNDATION_EXTERN UIColor *ClearColor(void);
+FOUNDATION_EXTERN UIColor *RandomColor(void);
 FOUNDATION_EXTERN UIColor *RGB(CGFloat r,CGFloat g,CGFloat b);
 
 

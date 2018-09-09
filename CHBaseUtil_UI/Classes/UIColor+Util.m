@@ -10,15 +10,15 @@
 
 @implementation UIColor (Util)
 
-UIColor *RedColor(){
+UIColor *RedColor(void){
     return [UIColor redColor];
 }
 
-UIColor *ClearColor(){
+UIColor *ClearColor(void){
     return  [UIColor clearColor];
 }
 
-UIColor *RandomColor()
+UIColor *RandomColor(void)
 {
 return [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1];
 }

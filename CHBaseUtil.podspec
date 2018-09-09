@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "CHBaseUtil 封装了一些常用的工具类，！！！ created by 峰云逸飞-李长鸿 ！！！有任何问题请给我留言交流"
 
   s.description  = <<-DESC
@@ -45,22 +45,22 @@ Pod::Spec.new do |s|
   s.source_files = 'CHBaseUtil.h'
  
   
-  s.default_subspecs = 'VC', 'UI', 'Router', 'Safe', 'JKDBModel'
+  # s.default_subspecs = 'VC', 'UI', 'Router', 'Safe', 'JKDBModel'
 
   s.subspec 'UI' do |ui|
     ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
-    ui.public_header_files = 'CHBaseUtil_UI/Classes/CHBaseUtil_UI.h'
+    # ui.public_header_files = 'CHBaseUtil_UI/Classes/CHBaseUtil_UI.h'
   end
       
   s.subspec 'VC' do |vc|
     vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
-    vc.public_header_files = 'CHBaseUtil_VC/Classes/CHBaseUtil_VC.h'
+    # vc.public_header_files = 'CHBaseUtil_VC/Classes/CHBaseUtil_VC.h'
   end
 
   s.subspec 'JKDBModel' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_JKDBModel_Category/Classes/**/*'
-    ss.public_header_files = 'CHBaseUtil_JKDBModel_Category/Classes/JKDBModel+JKDBModel.h'
+    # ss.public_header_files = 'CHBaseUtil_JKDBModel_Category/Classes/JKDBModel+JKDBModel.h'
     ss.dependency 'FMDB', '~> 2.7.2'
     ss.libraries     = "sqlite3"
   end
@@ -68,20 +68,20 @@ Pod::Spec.new do |s|
   s.subspec 'Router' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_Router/Classes/**/*'
-    ss.public_header_files = 'CHBaseUtil_Router/Classes/CHBaseUtil_Router.h'
+    # ss.public_header_files = 'CHBaseUtil_Router/Classes/CHBaseUtil_Router.h'
     ss.ios.frameworks = 'UIKit', 'Foundation'
   end
    
   s.subspec 'Safe' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
-    ss.public_header_files = 'CHBaseUtil_Safe/Classes/CHBaseUtil_Safe.h'
+    # ss.public_header_files = 'CHBaseUtil_Safe/Classes/CHBaseUtil_Safe.h'
   end
 
   s.subspec 'Util' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
-    ss.public_header_files = 'CHBaseUtil_Util/Classes/CHBaseUtil_Util.h'
+    # ss.public_header_files = 'CHBaseUtil_Util/Classes/CHBaseUtil_Util.h'
     ss.library = 'c++'
   end
 
