@@ -49,10 +49,12 @@ Pod::Spec.new do |s|
 
   s.subspec 'UI' do |ui|
     ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
+    ui.public_header_files = 'CHBaseUtil_UI/Classes/CHBaseUtil_UI.h'
   end
       
   s.subspec 'VC' do |vc|
     vc.source_files = 'CHBaseUtil_VC/Classes/**/*'
+    vc.public_header_files = 'CHBaseUtil_VC/Classes/CHBaseUtil_VC.h'
   end
 
   s.subspec 'JKDBModel' do |ss|
@@ -66,17 +68,20 @@ Pod::Spec.new do |s|
   s.subspec 'Router' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_Router/Classes/**/*'
+    ss.public_header_files = 'CHBaseUtil_Router/Classes/CHBaseUtil_Router.h'
     ss.ios.frameworks = 'UIKit', 'Foundation'
   end
    
   s.subspec 'Safe' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_Safe/Classes/**/*'
+    ss.public_header_files = 'CHBaseUtil_Safe/Classes/CHBaseUtil_Safe.h'
   end
 
   s.subspec 'Util' do |ss|
     ss.ios.deployment_target = '8.0'
     ss.source_files = 'CHBaseUtil_Util/Classes/**/*'
+    ss.public_header_files = 'CHBaseUtil_Util/Classes/CHBaseUtil_Util.h'
     ss.library = 'c++'
   end
 
