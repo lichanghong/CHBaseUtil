@@ -5,7 +5,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "CHBaseUtil"
-  s.version      = "1.0.4"
+  s.version      = "1.0.5"
   s.summary      = "CHBaseUtil 封装了一些常用的工具类，！！！ created by 峰云逸飞-李长鸿 ！！！有任何问题请给我留言交流"
 
   s.description  = <<-DESC
