@@ -94,7 +94,7 @@ void CTSwizzledAction(Class class,SEL currentMethod,SEL hookMethod) {
     {
         [self setHookForwardInvocation:YES];
         
-        NSCrashFromMethod *crashMethod = [[NSCrashFromMethod alloc] init];
+        CHCrashManager *crashMethod = [[CHCrashManager alloc] init];
         
         return [crashMethod methodSignatureForSelector:@selector(replaceMethod)];
     }
@@ -108,7 +108,7 @@ void CTSwizzledAction(Class class,SEL currentMethod,SEL hookMethod) {
     
     if (checkForward)
     {
-        NSCrashFromMethod *invokeTarget = [[NSCrashFromMethod alloc] init];
+        CHCrashManager *invokeTarget = [[CHCrashManager alloc] init];
         invokeTarget.claseName = NSStringFromClass([self class]);
         invokeTarget.methodName = NSStringFromSelector(invocation.selector);
         

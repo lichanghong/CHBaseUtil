@@ -1,14 +1,13 @@
 //
-//  NSCrashFromMethod.h
-//  51TalkTeacher
+//  lichanghong
 //
-//  Created by zftank on 2017/12/19.
-//  Copyright © 2017年 51TalkTeacher. All rights reserved.
+//  Created by lichanghong on 2017/12/19.
+//  Copyright © 2017年 lichanghong. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSCrashFromMethod : NSObject
+@interface CHCrashManager : NSObject
 
 @property (nonatomic,copy) NSString *claseName;
 

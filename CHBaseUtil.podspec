@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
-
+  s.public_header_files = 'CHBaseUtil.h'
  
   
   s.default_subspecs = 'VC', 'UI', 'Router', 'Safe', 'JKDBModel'

@@ -75,7 +75,7 @@
     
     NSString *message = @"substringWithRange: 越界";
     
-    [NSCrashFromMethod showCrashMessage:NSStringFromClass(self.class) crashMethod:message];
+    [CHCrashManager showCrashMessage:NSStringFromClass(self.class) crashMethod:message];
     
     return NO;
 }

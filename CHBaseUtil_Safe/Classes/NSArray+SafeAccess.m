@@ -64,7 +64,7 @@ NSMutbleArray *array5 = [NSMutbleArray array];
     }
     else
     {
-        [NSCrashFromMethod showCrashMessage:NSStringFromClass(self.class) crashMethod:@"数组越界"];
+        [CHCrashManager showCrashMessage:NSStringFromClass(self.class) crashMethod:@"数组越界"];
         
         return nil;
     }
@@ -78,7 +78,7 @@ NSMutbleArray *array5 = [NSMutbleArray array];
     }
     else
     {
-        [NSCrashFromMethod showCrashMessage:NSStringFromClass(self.class) crashMethod:@"数组越界"];
+        [CHCrashManager showCrashMessage:NSStringFromClass(self.class) crashMethod:@"数组越界"];
         
         return nil;
     }
@@ -92,7 +92,7 @@ NSMutbleArray *array5 = [NSMutbleArray array];
     }
     else
     {
-        [NSCrashFromMethod showCrashMessage:NSStringFromClass(self.class) crashMethod:@"数组越界"];
+        [CHCrashManager showCrashMessage:NSStringFromClass(self.class) crashMethod:@"数组越界"];
         
         return nil;
     }

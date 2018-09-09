@@ -1,45 +1,38 @@
 //
-//  NSCrashFromMethod.m
-//  51TalkTeacher
+//  lichanghong
 //
-//  Created by zftank on 2017/12/19.
-//  Copyright © 2017年 51TalkTeacher. All rights reserved.
+//  Created by lichanghong on 2017/12/19.
+//  Copyright © 2017年 lichanghong. All rights reserved.
 //
 
-#import "NSCrashFromMethod.h"
+#import "CHCrashManager.h"
 #import <UIKit/UIKit.h>
 
-@implementation NSCrashFromMethod
+@implementation CHCrashManager
 
 - (void)replaceMethod {
     
     NSString *message = [NSString stringWithFormat:@"%@ 异常调用",self.methodName];
     
-    [NSCrashFromMethod showMessage:self.claseName crashMessage:message];
+    [CHCrashManager showMessage:self.claseName crashMessage:message];
 }
 
 + (void)showCrashMessage:(NSString *)cName crashMethod:(NSString *)mName {
     
-    [NSCrashFromMethod showMessage:cName crashMessage:mName];
+    [CHCrashManager showMessage:cName crashMessage:mName];
 }
 
 + (void)showMessage:(NSString *)className crashMessage:(NSString *)message {
     
-#if DEBUG
-    
-//    NSArray *callArray = [NSThread callStackSymbols];
-//
-//    NSArray *stackArray = [NSThread callStackReturnAddresses];
-    
+    NSArray *callArray = [NSThread callStackSymbols];
+    NSArray *stackArray = [NSThread callStackReturnAddresses];
     dispatch_async(dispatch_get_main_queue(),^{
-        
         [[[UIAlertView alloc] initWithTitle:className message:message
                                    delegate:nil
                           cancelButtonTitle:@"确定"
                           otherButtonTitles:nil,nil] show];
     });
-    
-#endif
+    NSLog(@"callStackSymbols:%@\ncallStackReturnAddresses=%@\n,className=%@ , message=%@",callArray,stackArray,className,message);
 
 }
 

@@ -13,11 +13,14 @@
 #endif /* CHBaseUtil_Safe_h */
 
 
+#import "CHCrashManager.h"
 #import "NSArray+CHSafe.h"
+#import "NSArray+SafeAccess.h"
 #import "NSDate+CHUtil.h"
 #import "NSDateFormatter+CHCommon.h"
 #import "NSDictionary+CHSafe.h"
 #import "NSDictionary+Resolve.h"
+#import "NSDictionary+SafeAccess.h"
 #import "NSMutableArray+CHSafe.h"
 #import "NSMutableDictionary+CHSafe.h"
 #import "NSMutableString+CHSafe.h"
@@ -25,4 +28,6 @@
 #import "NSObject+SafeSelection.h"
 #import "NSString+CHSafe.h"
 #import "NSString+Resolve.h"
+#import "NSString+SafeAccess.h"
+
 

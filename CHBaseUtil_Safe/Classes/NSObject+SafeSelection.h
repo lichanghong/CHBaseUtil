@@ -8,7 +8,7 @@
 
 #import <objc/runtime.h>
 #import <Foundation/Foundation.h>
-#import "NSCrashFromMethod.h"
+#import "CHCrashManager.h"
 
 #import "NSDictionary+Resolve.h"
 #import "NSDictionary+SafeAccess.h"

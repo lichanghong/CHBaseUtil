@@ -42,7 +42,7 @@
     {
         NSString *message = [NSString stringWithFormat:@"setObject:forKey: 不能设置nil"];
         
-        [NSCrashFromMethod showCrashMessage:NSStringFromClass(self.class) crashMethod:message];
+        [CHCrashManager showCrashMessage:NSStringFromClass(self.class) crashMethod:message];
     }
 }
 
