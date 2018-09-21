@@ -12,6 +12,9 @@
 #import <objc/runtime.h>
 #import "RouterBaseModule.h"
 
+NSString *CHRouterUndefinedURLHTTPNotificationName = @"CHRouterUndefinedURLHTTPNotificationName";
+
+
 @implementation CHRouterRequest
 
 @end
@@ -21,7 +24,7 @@
 {
     self = [super init];
     if (self) {
-        _returnCode = CHRouterResultTypeSuccess;
+        _returnCode = CHRouterResultTypeUnknown;
     }
     return self;
 }
@@ -39,6 +42,22 @@
 @end
 
 @implementation CHRouter
+
++(instancetype)sharedInstance{
+    static CHRouter *router;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        router = [[self alloc] init];
+    });
+    return router;
+}
+
+#pragma mark -  注册模块
+
++ (void)registerAllModules
+{
+    [[CHRouter sharedInstance] registerAllModules];
+}
 
 - (void)registerAllModules
 {
@@ -60,9 +79,14 @@
 - (void)registerURL:(NSString *)url withURLHandler:(CHURLHandler)urlHandler
 {
     if (![[self.urlHandlers allKeys] containsObject:url] && urlHandler) {
+        if (!urlHandler || !url) {
+            return ;
+        }
         [self.urlHandlers setObject:urlHandler forKey:url];
     }
 }
+
+#pragma mark -  handle url
 
 - (CHRouterResponse *)openURL:(NSString *)url sourceViewController:(UIViewController *)sourceViewController
 {
@@ -74,20 +98,37 @@
     return [self openURL:url routerParameters:routerParameters sourceViewController:sourceViewController responseCallBack:nil];
 }
 
+- (CHRouterResponse *)openURL:(NSString *)url routerParameters:(NSDictionary *)routerParameters sourceViewController:(UIViewController *)sourceViewController delegate:(id<CHRouterResponseProtocol>)delegate
+{
+    return [self openURL:url routerParameters:routerParameters sourceViewController:sourceViewController delegate:delegate responseCallBack:nil];
+}
 - (CHRouterResponse *)openURL:(NSString *)url routerParameters:(NSDictionary *)routerParameters sourceViewController:(UIViewController *)sourceViewController responseCallBack:(RouterResponseCallBack)responseCallBack
+{
+    return [self openURL:url routerParameters:routerParameters sourceViewController:sourceViewController delegate:nil responseCallBack:responseCallBack];
+}
+
+- (CHRouterResponse *)openURL:(NSString *)url routerParameters:(NSDictionary *)routerParameters sourceViewController:(UIViewController *)sourceViewController delegate:(id<CHRouterResponseProtocol>)delegate responseCallBack:(RouterResponseCallBack)responseCallBack
 {
     CHRouterRequest *request = [[CHRouterRequest alloc] init];
     request.url = url;
     request.parameters = [self removingPercentEncodingStringParams:routerParameters];
     request.sourceViewController = sourceViewController;
     
-    CHRouterResponse *response = [self openWithRequest:request responseCallBack:responseCallBack];
+    CHRouterResponse *response = nil;
+    if (responseCallBack) {
+        response = [self openWithRequest:request responseCallBack:responseCallBack];
+    }
+    else if (delegate)
+    {
+        response = [self openWithRequest:request delegate:delegate];
+    }
     return response;
 }
 
-- (CHRouterResponse *)openWithRequest:(CHRouterRequest *)urlRequest responseCallBack:(RouterResponseCallBack)responseCallBack
+- (CHRouterResponse *)openWithRequest:(CHRouterRequest *)urlRequest delegate:(id<CHRouterResponseProtocol>)delegate callBack:(RouterResponseCallBack)responseCallBack
 {
     CHRouterResponse *response = [[CHRouterResponse alloc] init];
+    response.returnCode = CHRouterResultTypeUnknown;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<a.*?href=(['\"])(.*?)['\"].*?>(.*?)</a>" options:0 error:nil];
     NSString *originalURL = [regex stringByReplacingMatchesInString:urlRequest.url options:0 range:NSMakeRange(0, [urlRequest.url length]) withTemplate:@"$2"];
     
@@ -97,11 +138,10 @@
         return response;
     }
     
-//    NSString *urlScheme = [[self urlScheme:originalURL] lowercaseString];
+    NSString *url = [self router_urlWithoutQuery:originalURL];
+    NSString *urlScheme = [self chRouterUrlSchemeWithStr:url];
+    NSDictionary *urlParameters = [self routerUrlQueryDictionary:originalURL];
     
-    NSString *url = [[self urlWithoutQuery:originalURL] lowercaseString];
-    
-    NSDictionary *urlParameters = [self urlQueryDictionary:originalURL];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     
     if (urlParameters) {
@@ -114,6 +154,8 @@
     CHRouterHandleInfo *handleInfo = [[CHRouterHandleInfo alloc] init];
     handleInfo.parameters = [parameters copy];
     handleInfo.responseCallBack=responseCallBack;
+    handleInfo.delegate = delegate;
+    
     if (urlRequest.sourceViewController) {
         UIViewController *sourceVC = urlRequest.sourceViewController;
         UINavigationController *sourceNavi = nil;
@@ -122,27 +164,55 @@
         } else {
             sourceNavi = sourceVC.navigationController;
         }
-        handleInfo.sourceViewController = sourceVC ? : [self currentViewController];
-        handleInfo.sourveNavigationController = sourceNavi ? : [self currentViewController].navigationController;
+        handleInfo.sourceViewController = sourceVC ? : [self router_m_currentViewController];
+        handleInfo.sourveNavigationController = sourceNavi ? : [self router_m_currentViewController].navigationController;
     }
     else {
-        handleInfo.sourceViewController = [self currentViewController];
+        handleInfo.sourceViewController = [self router_m_currentViewController];
         handleInfo.sourveNavigationController = handleInfo.sourceViewController.navigationController;
     }
     
-    CHURLHandler handler = [self.urlHandlers objectForKey:url];
-    if (handler == nil) {
-        //适配url的大小写问题
-        handler = [self.urlHandlers objectForKey: url];
+    if (!handleInfo.sourveNavigationController) {
+        response.returnCode = CHRouterResultTypeNONavi;
+        response.returnMessage = @"导航控制器跑哪去了";
+        return response;
     }
-    if (handler) {
-        response = handler(handleInfo);
-    } else {
-        //            [[SYJumpCenter shareSYJumpCenter] goToPageByPath:originalURL Controller:nil];
-        response.returnMessage = [NSString stringWithFormat:@"该%@未注册对应的routerModule,应交由jumpCenter处理", url];
+    if ([[self nativeURLSchemes] containsObject:urlScheme]) {
+        CHURLHandler handler = [self.urlHandlers objectForKey:url];
+        if (handler) {
+            response = handler(handleInfo);
+        } else {
+            response.returnCode = CHRouterResultTypeURLNotExisted;
+            response.returnMessage = [NSString stringWithFormat:@"该%@未注册对应的routerModule", url];
+        }
     }
-    
+    else
+    {
+        response.returnCode = CHRouterResultTypeURLHTTP;
+        response.returnMessage = @"h5页面需要加载webView";
+        [[NSNotificationCenter defaultCenter] postNotificationName:CHRouterUndefinedURLHTTPNotificationName object:handleInfo];;
+    }
     return response;
+}
+
+#pragma mark - url methods
+
+- (NSArray *)nativeURLSchemes
+{
+    if (!_nativeURLSchemes) {
+        _nativeURLSchemes = [NSArray arrayWithObjects:@"aaaa.xxx", @"app.so",@"app.jump", nil];
+    }
+    return _nativeURLSchemes;
+}
+
+- (CHRouterResponse *)openWithRequest:(CHRouterRequest *)urlRequest responseCallBack:(RouterResponseCallBack)responseCallBack
+{
+    return [self openWithRequest:urlRequest delegate:nil callBack:responseCallBack];
+}
+            
+- (CHRouterResponse *)openWithRequest:(CHRouterRequest *)urlRequest delegate:(id<CHRouterResponseProtocol>)delegate
+{
+    return [self openWithRequest:urlRequest delegate:delegate callBack:nil];
 }
 
 - (UIViewController *)findTopmostViewController:(UIViewController *)rootViewController
@@ -175,7 +245,7 @@
     }
 }
 
-- (UIViewController *)currentViewController
+- (UIViewController *)router_m_currentViewController
 {
     UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     return [self findTopmostViewController:rootViewController];
@@ -195,23 +265,7 @@
     return copyParam;
 }
 
-
-
-- (NSString *)urlScheme:(NSString *)str
-{
-    if (str == nil || str.length == 0) {
-        return nil;
-    }
-    NSString *formatURL = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURL *candidateURL = [NSURL URLWithString:formatURL];
-    if (candidateURL && candidateURL.scheme.length && candidateURL.host) {
-        NSURL *url = [NSURL URLWithString:formatURL];
-        return url.scheme;
-    }
-    return nil;
-}
-
-- (NSString *)urlWithoutQuery:(NSString *)url
+- (NSString *)router_urlWithoutQuery:(NSString *)url
 {
     NSURL *URL = [NSURL URLWithString:url];
     NSString *query = URL.query;
@@ -233,10 +287,10 @@
     }
 }
 
-- (NSDictionary *)urlQueryDictionary:(NSString *)url
+- (NSDictionary *)routerUrlQueryDictionary:(NSString *)url
 {
     // 先判断是否是url
-    NSString *queryStr = [self urlScheme:url];
+    NSString *queryStr = [self chRouterUrlSchemeWithStr:url];
     if (!queryStr) {
         queryStr = url;
     }
@@ -254,7 +308,7 @@
             value = [temp substringFromIndex:range.location+1];
             
             value = [value stringByRemovingPercentEncoding];
-            value = [value stringByRemovingPercentEncoding];//两次 防止转一次不够   多转不会受影响
+            value = [value stringByRemovingPercentEncoding];
             [queryDict setObject:value ? value : @"" forKey:key];
         }
     }];
@@ -262,6 +316,19 @@
     return queryDict;
 }
 
+- (NSString *)chRouterUrlSchemeWithStr:(NSString *)str
+{
+    if (str == nil || str.length == 0) {
+        return nil;
+    }
+    NSString *formatURL = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *candidateURL = [NSURL URLWithString:formatURL];
+    if (candidateURL && candidateURL.scheme.length && candidateURL.host) {
+        NSURL *url = [NSURL URLWithString:formatURL];
+        return url.scheme;
+    }
+    return nil;
+}
 
 - (NSMutableDictionary *)urlHandlers
 {
@@ -269,15 +336,6 @@
         _urlHandlers = [NSMutableDictionary dictionary];
     }
     return _urlHandlers;
-}
-
-+(instancetype)sharedInstance{
-    static CHRouter *router;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        router = [[CHRouter alloc] init];
-    });
-    return router;
 }
 
 

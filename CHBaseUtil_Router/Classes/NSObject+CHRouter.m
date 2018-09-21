@@ -29,6 +29,19 @@
     request.sourceViewController = sourceViewController;
     return [[CHRouter sharedInstance] openWithRequest:request responseCallBack:responseCallBack];
 }
+- (CHRouterResponse *)ch_openURL:(NSString *)url delegate:(id<CHRouterResponseProtocol>)delegate
+{
+    CHRouterRequest *request = [[CHRouterRequest alloc] init];
+    request.url = url;
+    return [[CHRouter sharedInstance] openWithRequest:request delegate:delegate];
+}
+
+- (CHRouterResponse *)ch_openURL:(NSString *)url responseCallBack:(RouterResponseCallBack)responseCallBack
+{
+    CHRouterRequest *request = [[CHRouterRequest alloc] init];
+    request.url = url;
+    return [[CHRouter sharedInstance] openWithRequest:request responseCallBack:responseCallBack];
+}
 
 + (CHRouterResponse *)ch_openURL:(NSString *)url
 {
@@ -51,5 +64,22 @@
     request.sourceViewController = sourceViewController;
     return [[CHRouter sharedInstance] openWithRequest:request responseCallBack:responseCallBack];
 }
+
++ (CHRouterResponse *)ch_openURL:(NSString *)url delegate:(id<CHRouterResponseProtocol>)delegate
+{
+    CHRouterRequest *request = [[CHRouterRequest alloc] init];
+    request.url = url;
+    return [[CHRouter sharedInstance] openWithRequest:request delegate:delegate];
+}
+
++ (CHRouterResponse *)ch_openURL:(NSString *)url responseCallBack:(RouterResponseCallBack)responseCallBack
+{
+    CHRouterRequest *request = [[CHRouterRequest alloc] init];
+    request.url = url;
+    return [[CHRouter sharedInstance] openWithRequest:request responseCallBack:responseCallBack];
+}
+
+
+
 
 @end

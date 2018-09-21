@@ -12,10 +12,12 @@
 #import "NSDictionary+CHRouter.h"
 #import "NSObject+CHRouter.h"
 #import "RouterBaseModule.h"
+#import "CHRouterResponseProtocol.h"
 
 #endif /* CHBaseUtil_Router_h */
 
-
+// 所有模块都继承自CHBaseModule，内建URL跳转地址，如果是h5等地址，需要自主创建一个类监听通知CHRouterResultUndefinedURLHTTP，收到的参数是 CHRouterHandleInfo
+//
 //- (IBAction)handleAction:(id)sender {
 //    //    [[CHRouter sharedInstance]openURL:@"app.xxx://xx/home" sourceViewController:nil];
 //    [[CHRouter sharedInstance]openURL:@"app.xxx://xx/home" routerParameters:nil sourceViewController:nil responseCallBack:^(CHRouterResponse *response) {

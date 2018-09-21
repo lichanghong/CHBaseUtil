@@ -8,21 +8,17 @@
 
 #import "NSDictionary+CHRouter.h"
 
-
-NSString *const RouterTransitionTypeKey = @"transitionType";
-//NSString *const RouterWebContainerModeKey = @"webContainerMode";
-//NSString *const RouterWebPageTypeKey = @"webPageType";
-
+NSString *const CHRouterTransitionTypeKey = @"CHRouterTransitionTypeKey";
+NSString *const CBRouterTransitionAnimatedKey = @"CBRouterTransitionAnimatedKey";
 
 @implementation NSDictionary (CHRouter)
 
 - (CHRouterVCTransitionType)transitionType
 {
-    
-    return [self numberForKey:RouterTransitionTypeKey].integerValue;
+    return [self mnumberForKey:CHRouterTransitionTypeKey].integerValue;
 }
 
-- (NSNumber *)numberForKey:(id)key
+- (NSNumber *)mnumberForKey:(id)key
 {
     id obj = [self objectForKey:key];
     if ([obj isKindOfClass:[NSString class]]) {
@@ -33,15 +29,6 @@ NSString *const RouterTransitionTypeKey = @"transitionType";
     return nil;
 }
 
-//- (SYWebContainerMode)webContainerMode
-//{
-//    return [self cdf_numberForKey:SYRouterWebContainerModeKey].integerValue;
-//}
-//
-//- (SYWebPageType)webPageType
-//{
-//    return [self cdf_numberForKey:SYRouterWebPageTypeKey].integerValue;
-//}
 
 
 @end

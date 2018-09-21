@@ -11,15 +11,19 @@
 
 @class CHRouterResponse;
 @class CHRouterHandleInfo;
+
+typedef void(^CHRouterCallBack)(CHRouterResponse *routerResponse);
+
 @interface RouterBaseModule : NSObject
 
 - (NSArray *)routerURLs;
 
 - (CHRouterResponse *)handleURL:(NSString *)url handleInfo:(CHRouterHandleInfo *)handleInfo;
-- (void)handleCallbackWithURL:(NSString *)url
-           responseActionName:(NSString *)responseActionName
-         responseActionParams:(id)params;
 
+- (void)handleCallbackWithURL:(NSString *)url
+                   identifier:(NSString *)identifier
+               responseParams:(id)responseParams;
+ 
 - (void)transitionViewController:(UIViewController *)viewController
                         WithHandleInfo:(CHRouterHandleInfo *)handleInfo
                         animated:(BOOL)animated;
