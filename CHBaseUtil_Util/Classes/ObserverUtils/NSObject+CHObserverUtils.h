@@ -1,8 +1,8 @@
 //
-//  NSObject+CHObserverUtils.h
+//  CHObserverUtils.h
 //
-//  Created by lizenan on 2017/4/19.
-//  Copyright © 2017年 lizenan. All rights reserved.
+//  Created by lichanghong on 2017/4/19.
+//  Copyright © 2017年 lichanghong. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

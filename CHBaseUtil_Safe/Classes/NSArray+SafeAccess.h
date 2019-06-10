@@ -1,9 +1,5 @@
-//
-//  NSArray+SafeAccess.h
-//  51TalkTeacher
-//
-//  Created by zftank on 2017/12/19.
-//  Copyright © 2017年 51TalkTeacher. All rights reserved.
+//  Created by lichanghong on 9/9/18.
+//  Copyright © 2018 lichanghong. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

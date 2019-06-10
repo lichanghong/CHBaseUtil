@@ -1,10 +1,7 @@
+//  CHBaseUtil
 //
-//  NSString+SafeAccess.m
-//  51TalkTeacher
-//
-//  Created by zftank on 2017/12/20.
-//  Copyright © 2017年 51TalkTeacher. All rights reserved.
-//
+//  Created by lichanghong on 13/02/2018.
+//  Copyright © 2018 lichanghong. All rights reserved.
 
 #import "NSString+SafeAccess.h"
 #import "NSObject+SafeSelection.h"

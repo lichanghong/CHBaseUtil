@@ -1,10 +1,7 @@
+//  CHBaseUtil
 //
-//  UIColor+Hex.h
-//  ChatClient
-//
-//  Created by  on 11-10-25.
-//  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
-//
+//  Created by lichanghong on 13/02/2018.
+//  Copyright © 2018 lichanghong. All rights reserved.
 
 #import <UIKit/UIKit.h>
 

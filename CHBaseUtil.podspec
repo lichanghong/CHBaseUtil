@@ -49,6 +49,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'UI' do |ui|
     ui.source_files = 'CHBaseUtil_UI/Classes/**/*'
+    ui.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
     # ui.public_header_files = 'CHBaseUtil_UI/Classes/CHBaseUtil_UI.h'
   end
       

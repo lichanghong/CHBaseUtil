@@ -1,9 +1,5 @@
-//
-//  NSDictionary+Resolve.m
-//  WYTourism
-//
-//  Created by aoyipower on 14/11/23.
-//  Copyright (c) 2014年 WYTourism. All rights reserved.
+//  Created by lichanghong on 9/9/18.
+//  Copyright © 2018 lichanghong. All rights reserved.
 //
 
 #include <objc/runtime.h>
